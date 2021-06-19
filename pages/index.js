@@ -18,7 +18,8 @@ export default function Home() {
 
       <div>
         {blogPosts.map((item) => (
-          <div key={item.title}>
+          // react needs a key so that it knows that each item you're creating dynamically is unique
+          <div key={item.slug}>
             <div>{item.title}</div>
             <div>{item.date.toString()}</div>
             <div>{item.content}</div>
