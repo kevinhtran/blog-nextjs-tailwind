@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import { blogPosts } from '../lib/data';
 
 export default function Home() {
   return (
@@ -14,6 +15,16 @@ export default function Home() {
           Kevin Tran's Blog
         </h1>
       </main>
+
+      <div>
+        {blogPosts.map((item) => (
+          <div key={item.title}>
+            <div>{item.title}</div>
+            <div>{item.date.toString()}</div>
+            <div>{item.content}</div>
+          </div>
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
