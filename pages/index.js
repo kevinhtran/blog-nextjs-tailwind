@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { blogPosts } from '../lib/data';
 
 export default function Home() {
@@ -20,7 +21,7 @@ export default function Home() {
         {blogPosts.map((item) => (
           // react needs a key so that it knows that each item you're creating dynamically is unique
           <div key={item.slug}>
-            <div>{item.title}</div>
+            <div><Link href={`/blog/${item.slug}`}><a>{item.title}</a></Link></div>
             <div>{item.date.toString()}</div>
             <div>{item.content}</div>
           </div>
