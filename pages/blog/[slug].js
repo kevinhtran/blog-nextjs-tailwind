@@ -1,19 +1,21 @@
+//template for each blog page
+
 import Head from 'next/head';
 import React from 'react'
 
-const about = () => {
+const BlogPage = ({title, date, content}) => {
   return (
     <div>
       <Head>
-        <title>About</title>
+        <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1>About</h1>
+        <h1>{title}</h1>
       </main>
     </div>
   )
 }
 
-export default about
+export default BlogPage
