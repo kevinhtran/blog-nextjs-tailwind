@@ -11,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
+      <div className="space-y-4">
         {blogPosts.map((item) => (
           <BlogListItem key={item.slug} {...item} />
         ))}
@@ -22,9 +22,9 @@ export default function Home() {
 
 function BlogListItem({ slug, title, date, content}) {
   return (
-    <div>
+    <div className="border border-black-200 shadow rounded p-4">
         <div>
-          <div><Link href={`/blog/${slug}`}><a>{title}</a></Link></div>
+          <div><Link href={`/blog/${slug}`}><a className="text-lg font-bold">{title}</a></Link></div>
           <div>{date.toString()}</div>
           <div>{content}</div>
         </div>
