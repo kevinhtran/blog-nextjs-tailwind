@@ -26,7 +26,7 @@ export default function Home() {
 
 function BlogListItem({ slug, title, date, content}) {
   return (
-    <div className="border border-black-200 shadow hover:shadow-md hover:border-black-200 rounded-md p-4 transition duration-200 ease-in">
+    <div className="border border-gray-100 shadow hover:shadow-md hover:border-gray-200 rounded-md p-4 transition duration-200 ease-in">
         <div>
           <div><Link href={`/blog/${slug}`}><a className="text-lg font-bold">{title}</a></Link></div>
           <div className="text-gray-600 text-xs">{format(parseISO(date), 'MMMM do, uuu')}</div>
