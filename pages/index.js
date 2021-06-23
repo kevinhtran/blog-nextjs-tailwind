@@ -11,22 +11,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>
-          Kevin Tran's Blog
-        </h1>
-      </main>
-
       <div>
         {blogPosts.map((item) => (
-          // react needs a key so that it knows that each item you're creating dynamically is unique
-          <div key={item.slug}>
-            <div><Link href={`/blog/${item.slug}`}><a>{item.title}</a></Link></div>
-            <div>{item.date.toString()}</div>
-            <div>{item.content}</div>
-          </div>
+          <BlogListItem key={item.slug} {...item} />
         ))}
       </div>
     </div>
   );
 };
+
+function BlogListItem({ slug, title, date, content}) {
+  return (
+    <div>
+        <div>
+          <div><Link href={`/blog/${slug}`}><a>{title}</a></Link></div>
+          <div>{date.toString()}</div>
+          <div>{content}</div>
+        </div>
+      ))}
+    </div>
+  )
+}
