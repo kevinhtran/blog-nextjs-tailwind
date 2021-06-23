@@ -1,6 +1,10 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { format, parseISO, add } from 'date-fns';
 import { blogPosts } from '../lib/data';
+
+const data = new Date();
+const options = {year: 'numeric', month: 'long', day: 'numeric'}
 
 export default function Home() {
   return (
@@ -22,10 +26,10 @@ export default function Home() {
 
 function BlogListItem({ slug, title, date, content}) {
   return (
-    <div className="border border-black-200 shadow rounded p-4">
+    <div className="border border-black-200 shadow hover:shadow-md hover:border-black-200 rounded-md p-4 transition duration-200 ease-in">
         <div>
           <div><Link href={`/blog/${slug}`}><a className="text-lg font-bold">{title}</a></Link></div>
-          <div>{date.toString()}</div>
+          <div className="text-gray-600 text-xs">{format(parseISO(date), 'MMMM do, uuu')}</div>
           <div>{content}</div>
         </div>
       ))}
